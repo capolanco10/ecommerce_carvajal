@@ -40,10 +40,12 @@ implementar una prueba de concepto, generando una aplicación web que cumpla con
 ---
 # CAPACIDADES
 
+[Documentación capacidades con swagger](http://localhost:9000/api/v1/ecommercemanager/swagger-ui.html "Documentación capacidades con swagger")
+
 ---
 # CONFIGURACIÓN 
 
- - Configuración Imagen y contenedor **DOCKER**
+ - Configuración Imagen y contenedor **DOCKER** para **postgresql**
  1. Ubicarse en la raíz del proyecto y correr el comando.
 	> `docker build -t ecommerce_manager_postgresql .`
 	> 
