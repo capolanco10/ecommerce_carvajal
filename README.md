@@ -5,10 +5,11 @@
 
 Actualmente en Carvajal está incursionando en el modelo e-commerce y dentro de sus productos B2C quiere agregar la opción Lista de deseos, donde agregará los productos que le gustaría comprar en un futuro.
 
+
 # Ecommerce-Management-Service
 
 # ALCANCE
- 
+
 implementar una prueba de concepto, generando una aplicación web que cumpla con los siguientes requisitos funcionales:
 
  1. Cuando el cliente ingrese, debe ver el catálogo de productos que ofrece Carvajal, indicando las cantidades existentes del mismo.
@@ -22,12 +23,6 @@ implementar una prueba de concepto, generando una aplicación web que cumpla con
 **Modelo de datos:**
 
 ![modeloDatos_User-management-services.png](/.attachments/modeloDatos_User-management-services-88e7a41a-11aa-4e18-82ad-46cea535f250.png)
-
-
-**Modelo de Interacción de componentes**
-
-![user-management-services-diagrama de componente.png](/.attachments/user-management-services-diagrama%20de%20componente-e7060d17-a8e1-4d78-870b-804b7377f342.png)
-
 
 ---
 # PRERREQUISITOS
