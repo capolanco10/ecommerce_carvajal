@@ -26,6 +26,8 @@ public class ProductsDTO implements Serializable{
 
 	private Integer id;
     private String code;
+    private String name;
     private Double unitPrice;
     private String description;
+    private Integer amount;
 }

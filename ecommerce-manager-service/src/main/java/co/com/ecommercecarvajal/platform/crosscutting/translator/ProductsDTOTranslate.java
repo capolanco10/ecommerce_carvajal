@@ -17,8 +17,10 @@ public class ProductsDTOTranslate implements Translator<Products, ProductsDTO> {
         return ProductsDTO.builder()
         		.id(entity.getId())
                 .code(entity.getCode())
+                .name(entity.getName())
                 .unitPrice(entity.getUnitPrice())
-                .description(entity.getDescription()).build();
+                .description(entity.getDescription())
+                .amount(entity.getAmount()).build();
     }
 
 }

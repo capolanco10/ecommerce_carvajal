@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class InvoicesDTO implements Serializable{
+public class ShoppingcartDTO implements Serializable{
 
 	private static final long serialVersionUID = 4073757792639035116L;
 
@@ -28,9 +28,9 @@ public class InvoicesDTO implements Serializable{
 	
 	private Integer idCustomer;
     
-   // @ApiModelProperty(value = "invoiceDate", name = "invoiceDate", example = ResponseConstant.DATE_TIME)
+   // @ApiModelProperty(value = "shoppingcartDate", name = "shoppingcartDate", example = ResponseConstant.DATE_TIME)
     @JsonFormat(pattern = Constants.SIMPLE_DATE_TIME_FORMAT)
-    private LocalDateTime invoiceDate;
+    private LocalDateTime shoppingcartDate;
     
-    private List<InvoiceDetailDTO> invoiceDetail;
+    private List<ShoppingcartDetailDTO> shoppingcartDetail;
 }

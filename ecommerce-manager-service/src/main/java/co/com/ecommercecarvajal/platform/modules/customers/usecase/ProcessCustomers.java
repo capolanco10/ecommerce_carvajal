@@ -15,13 +15,12 @@ import co.com.ecommercecarvajal.platform.crosscutting.exception.EBusinessRuntime
 import co.com.ecommercecarvajal.platform.crosscutting.messages.CustomersMessages;
 import co.com.ecommercecarvajal.platform.crosscutting.stereotypes.UseCase;
 import co.com.ecommercecarvajal.platform.modules.customers.dataproviders.CustomersDataProvider;
-import lombok.extern.log4j.Log4j2;
 
 /**
  * Process Shift use case.
  */
 
-@Log4j2
+//@Log4j2
 @UseCase
 public class ProcessCustomers {
 

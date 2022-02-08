@@ -4,7 +4,7 @@
 
 SET client_encoding = 'UTF8';
 
-CREATE DATABASE ecommercemanager;
+--CREATE DATABASE ecommercemanager;
 
 --GRANT ALL PRIVILEGES ON DATABASE ecommercemanager TO postgres;
 

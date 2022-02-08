@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class InvoicesMessages {
+public class ShoppingcartMessages {
 	
     public static final String PRODUCTS_ERROR_SAVE = "Error guardando los productos";
     

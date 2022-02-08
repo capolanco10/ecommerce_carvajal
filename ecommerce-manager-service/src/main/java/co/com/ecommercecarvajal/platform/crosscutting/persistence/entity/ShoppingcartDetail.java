@@ -4,7 +4,6 @@
 package co.com.ecommercecarvajal.platform.crosscutting.persistence.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,9 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import co.com.ecommercecarvajal.platform.crosscutting.constants.Constants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,8 +27,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "invoices", schema = "public")
-public class Invoices implements Serializable{
+@Table(name = "shoppingcart_detail", schema = "public")
+public class ShoppingcartDetail implements Serializable{
 
 	private static final long serialVersionUID = 4052186856571123809L;
 	
@@ -41,16 +37,18 @@ public class Invoices implements Serializable{
     @Column(name = "id", columnDefinition = "serial")
 	private Integer id;
 	
-    @Column(name = "id_customer")
-    private Integer idCustomer;
+    @Column(name = "id_shoppingcart")
+    private Integer idShoppingcart;
     
-    @JsonFormat(pattern = Constants.SIMPLE_DATE_TIME_FORMAT)
-    @Column(name = "invoice_date")
-    private LocalDateTime invoiceDate;
+    @Column(name = "id_product")
+    private Integer idProduct;
+    
+    @Column(name = "amount")
+    private Integer amount;
 
-    @Column(name = "total_invoice")
-    private Double totalInvoice;
+    @Column(name = "subtotal")
+    private Double subtotal;
 
-    @Column(name = "total_iva")
-    private Double totalIva;
+    @Column(name = "total")
+    private Double total;
 }

@@ -2,6 +2,7 @@ package co.com.ecommercecarvajal.platform.crosscutting.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -15,19 +16,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-public class InvoicesExtDTO implements Serializable{
+public class ShoppingcartDetailResponseDTO implements Serializable{
 
-	private static final long serialVersionUID = -639757363292462343L;
-	
+	private static final long serialVersionUID = -1027442754374155272L;
+
 	private Integer id;
 	
     private Integer idCustomer;
     
     @JsonFormat(pattern = Constants.SIMPLE_DATE_TIME_FORMAT)
-    private LocalDateTime invoiceDate;
+    private LocalDateTime shoppingcartDate;
 
     private Double totalInvoice;
 
     private Double totalIva;
+    
+    private List<ShoppingcartDetailDTO> shoppingcartDetail;
 
 }

@@ -37,6 +37,6 @@ public class ApiDocumentationConstant {
 	public static final String DEL_VALUE_PRODUCT_WEB_API = "Transaccion para eliminar un producto.";
 	public static final String DEL_NOTE_PRODUCT_WEB_API = "Retorna mensaje de eliminacion del producto.";
 	
-	public static final String POST_VALUE_INVOICES_WEB_API = "Transaccion para agregar una factura.";
-	public static final String POST_NOTE_INVOICES_WEB_API = "Retorna lista de las facturas insertados.";
+	public static final String POST_VALUE_SHOPPINGCART_WEB_API = "Transaccion para agregar una producto a la lista de deseos.";
+	public static final String POST_NOTE_SHOPPINGCART_WEB_API = "Retorna lista de productos a la lista de deseos.";
 }

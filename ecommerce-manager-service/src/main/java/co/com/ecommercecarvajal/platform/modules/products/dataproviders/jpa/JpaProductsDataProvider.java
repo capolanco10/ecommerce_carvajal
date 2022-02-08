@@ -42,8 +42,6 @@ public class JpaProductsDataProvider implements ProductsDataProvider {
 	public ProductsDTO getProduct(Integer idProduct) throws EBusinessApplicationException {
 		Optional<Products> products = productsRepository.findById(idProduct);
 		if (products.isEmpty()) {
-			//printErrorLog.printLog(SpecificShiftDeliveryCenterConstants.SPECIFIC_SHIFT_FIND,
-			//		SpecificShiftDeliveryCenterMessages.SPECIFIC_SHIFT_DELIVER_CENTER_ERROR);
 			throw ExceptionBuilder.builder()
 					.withCode(ProductsMessages.COD_PRODUCT_ERROR)
 					.withMessage(ProductsMessages.GET_PRODUCT_ERROR)

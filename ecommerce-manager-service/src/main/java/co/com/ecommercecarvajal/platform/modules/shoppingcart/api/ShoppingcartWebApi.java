@@ -1,4 +1,4 @@
-package co.com.ecommercecarvajal.platform.modules.invoices.api;
+package co.com.ecommercecarvajal.platform.modules.shoppingcart.api;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,27 +16,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.com.ecommercecarvajal.platform.crosscutting.constants.ApiDocumentationConstant;
 import co.com.ecommercecarvajal.platform.crosscutting.constants.ResponseConstant;
-import co.com.ecommercecarvajal.platform.crosscutting.domain.InvoicesDTO;
+import co.com.ecommercecarvajal.platform.crosscutting.domain.ShoppingcartDTO;
 import co.com.ecommercecarvajal.platform.crosscutting.domain.RequestDTO;
 import co.com.ecommercecarvajal.platform.crosscutting.exception.EBusinessApplicationException;
-import co.com.ecommercecarvajal.platform.modules.invoices.usecase.ProcessInvoices;
+import co.com.ecommercecarvajal.platform.modules.shoppingcart.usecase.ProcessShoppingcart;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value = ResponseConstant.INVOICE_URL, produces = { MediaType.APPLICATION_JSON_VALUE })
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,
 		RequestMethod.PUT })
-public class InvoicesWebApi {
+public class ShoppingcartWebApi {
 
 	@Autowired
-	private ProcessInvoices processInvoices;
+	private ProcessShoppingcart processInvoices;
 
-	@ApiOperation(value = ApiDocumentationConstant.POST_VALUE_INVOICES_WEB_API, notes = ApiDocumentationConstant.POST_NOTE_INVOICES_WEB_API, response = RequestDTO.class)
+	@ApiOperation(value = ApiDocumentationConstant.POST_VALUE_SHOPPINGCART_WEB_API, notes = ApiDocumentationConstant.POST_NOTE_SHOPPINGCART_WEB_API, response = RequestDTO.class)
 	@PostMapping(ResponseConstant.INVOICE_URL)
-	public ResponseEntity<Object> invoices(@RequestBody final InvoicesDTO invoicesDTO)
+	public ResponseEntity<Object> invoices(@RequestBody final ShoppingcartDTO invoicesDTO)
 			throws EBusinessApplicationException {
 		Map<String, Object> response = new HashMap<>();
-		response.put(ResponseConstant.STATUS, processInvoices.saveInvoices(invoicesDTO));
+		response.put(ResponseConstant.STATUS, processInvoices.saveShoppingcarts(invoicesDTO));
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 }

@@ -2,22 +2,22 @@ package co.com.ecommercecarvajal.platform.crosscutting.translator;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import co.com.ecommercecarvajal.platform.crosscutting.domain.InvoicesExtDTO;
+import co.com.ecommercecarvajal.platform.crosscutting.domain.ShoppingcartExtDTO;
 import co.com.ecommercecarvajal.platform.crosscutting.patterns.Translator;
-import co.com.ecommercecarvajal.platform.crosscutting.persistence.entity.Invoices;
+import co.com.ecommercecarvajal.platform.crosscutting.persistence.entity.Shoppingcart;
 import co.com.ecommercecarvajal.platform.crosscutting.stereotypes.DomainTranslator;
 
 @DomainTranslator
-@Qualifier("invoices")
-public class InvoicesTranslate implements Translator<InvoicesExtDTO, Invoices> {
+@Qualifier("shoppingcart")
+public class ShoppingcartTranslate implements Translator<ShoppingcartExtDTO, Shoppingcart> {
 
     @Override
-    public Invoices translate(InvoicesExtDTO invoicesExtDTO) {
+    public Shoppingcart translate(ShoppingcartExtDTO invoicesExtDTO) {
 
-        return Invoices.builder()
+        return Shoppingcart.builder()
         		.id(invoicesExtDTO.getId())
                 .idCustomer(invoicesExtDTO.getIdCustomer())
-                .invoiceDate(invoicesExtDTO.getInvoiceDate())
+                .shoppingcartDate(invoicesExtDTO.getShoppingcartDate())
                 .totalInvoice(invoicesExtDTO.getTotalInvoice())
                 .totalIva(invoicesExtDTO.getTotalIva()).build();
     }
