@@ -1,0 +1,39 @@
+
+server: 
+  port: 9000
+  servlet:
+    contextPath: /api/v1/ecommercemanager
+    
+logging:
+   level:
+      org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+spring:
+  jpa:
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true 
+  datasource: 
+    db-ecommercemanager: 
+      driver-class-name: org.postgresql.Driver
+      hikari: 
+        maximumPoolSize: 10
+        minimumIdle: 5
+        poolName: invoices-jdbc-pool
+      jdbc-url: "jdbc:postgresql://localhost:5432/ecommercemanager"
+      jmx-enabled: true
+      password: admin
+      username: postgres     
+
+resttemplate:
+  connection:
+    timeOut: 3000
+  read:
+    timeOut: 3000
+    
+locale:
+  language: es
+  country: CO
+  
+general:
+  invoice:
+    iva : 19
