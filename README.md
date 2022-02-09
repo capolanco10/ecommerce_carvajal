@@ -40,10 +40,8 @@ implementar una prueba de concepto, generando una aplicación web que cumpla con
 ---
 # CONFIGURACIÓN 
 
- - Configuración Imagen y contenedor **DOCKER** para **postgresql**
+ - Configuración Imagen y contenedor **DOCKER** para **postgresql y ecommerce-manager-service**
  1. Ubicarse en la raíz del proyecto y correr el comando.
-	> `docker build -t ecommerce_manager_postgresql .`
-	> 
-	> `docker run -d -p 5432:5432 ecommerce_manager_postgresql`
+	> `docker-compose up`
 
 ---
