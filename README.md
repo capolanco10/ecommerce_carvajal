@@ -22,7 +22,7 @@ implementar una prueba de concepto, generando una aplicación web que cumpla con
 
 **Modelo de datos:**
 
-![modeloDatos_User-management-services.png](/.attachments/modeloDatos_User-management-services-88e7a41a-11aa-4e18-82ad-46cea535f250.png)
+![diagrama_datos.png](/.attachments/modeloDatos_User-management-services-88e7a41a-11aa-4e18-82ad-46cea535f250.png)
 
 ---
 # PRERREQUISITOS
@@ -39,9 +39,12 @@ implementar una prueba de concepto, generando una aplicación web que cumpla con
 
 ---
 # CONFIGURACIÓN 
+ - Compilar el proyecto **ecommerce-manager-service**
+ 1. Ubicarse en la raíz del **Proyecto** y correr el comando.
+        > `./gradlew clean build`
 
  - Configuración Imagen y contenedor **DOCKER** para **postgresql y ecommerce-manager-service**
- 1. Ubicarse en la raíz del proyecto y correr el comando.
+ 1. Ubicarse en la raíz del **repositorio** y correr el comando.
 	> `docker-compose up`
 
 ---
