@@ -11,5 +11,5 @@ public class ShoppingcartMessages {
     public static final String COD_PRODUCT_ERROR = "CD001";
     public static final String GET_PRODUCT_ERROR = "Error buscando producto";
 
-    public static final String DELETE_PRODUCT = "Se eliminó el producto con exito.";
+    public static final String DELETE_PRODUCT = "Se elimino el producto con exito.";
 }
