@@ -43,4 +43,7 @@ public class ApiDocumentationConstant {
 	public static final String DELETE_VALUE_SHOPPINGCART_WEB_API = "Transaccion para eliminar una producto de la lista de deseos.";
 	public static final String DELETE_NOTE_SHOPPINGCART_WEB_API = "Retorna mensaje de eliminacion del producto de la lista de deseos.";
 	
+	public static final String GET_VALUE_SHOPPINGCARTDETAIL_WEB_API = "Transaccion para consultar todos los productos asociados a la lista de deseos.";
+	public static final String GET_NOTE_SHOPPINGCARTDETAI_WEB_API = "Retorna una lista de todos los productos asociados a la lista de deseos.";
+	
 }
