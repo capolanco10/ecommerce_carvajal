@@ -13,4 +13,6 @@ public class ProductsMessages {
 
     public static final String DELETE_PRODUCT = "Se eliminó el producto con exito.";
     public static final String PRODUCT_NOTNULL = "El id del producto no puede ser nulo.";
+    
+    public static final String DELETE_SHOPPINGCARTDETAIL= "Se eliminó el producto de la lista de deseo con exito.";
 }

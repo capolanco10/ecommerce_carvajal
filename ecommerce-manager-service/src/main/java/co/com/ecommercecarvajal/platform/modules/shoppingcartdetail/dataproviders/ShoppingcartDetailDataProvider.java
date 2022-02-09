@@ -6,5 +6,6 @@ import co.com.ecommercecarvajal.platform.crosscutting.exception.EBusinessApplica
 public interface ShoppingcartDetailDataProvider {
 	
 	ShoppingcartDetailDTO saveShoppingcartDetail(ShoppingcartDetailDTO shoppingcarts) throws EBusinessApplicationException;
-
+	
+	void deleteShoppingcartDetail(ShoppingcartDetailDTO entity) throws EBusinessApplicationException;
 }

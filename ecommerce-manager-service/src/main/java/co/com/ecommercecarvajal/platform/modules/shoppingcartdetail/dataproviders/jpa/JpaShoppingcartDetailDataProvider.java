@@ -29,5 +29,9 @@ public class JpaShoppingcartDetailDataProvider implements ShoppingcartDetailData
 	public ShoppingcartDetailDTO saveShoppingcartDetail(ShoppingcartDetailDTO entity) throws EBusinessApplicationException {
 		return shoppingcartDetailDTOTranslate.translate(shoppingcartDetailRepository.save(shoppingcartDetailTranslate.translate(entity)));
 	}
-
+	
+	@Override
+	public void deleteShoppingcartDetail(ShoppingcartDetailDTO entity) throws EBusinessApplicationException {
+		shoppingcartDetailRepository.delete(shoppingcartDetailTranslate.translate(entity));
+	}
 }

@@ -17,11 +17,13 @@ import co.com.ecommercecarvajal.platform.crosscutting.exception.EBusinessApplica
 import co.com.ecommercecarvajal.platform.crosscutting.exception.EBusinessRuntimeBusinessException;
 import co.com.ecommercecarvajal.platform.crosscutting.messages.CustomersMessages;
 import co.com.ecommercecarvajal.platform.crosscutting.messages.ProductsMessages;
+import co.com.ecommercecarvajal.platform.crosscutting.persistence.entity.Shoppingcarthistory;
 import co.com.ecommercecarvajal.platform.crosscutting.stereotypes.UseCase;
 import co.com.ecommercecarvajal.platform.crosscutting.translator.ShoppingcartDetailResponseDTOTranslate;
 import co.com.ecommercecarvajal.platform.crosscutting.util.ConfigurationParameterGeneral;
 import co.com.ecommercecarvajal.platform.modules.shoppingcart.dataproviders.ShoppingcartDataProvider;
 import co.com.ecommercecarvajal.platform.modules.shoppingcartdetail.dataproviders.ShoppingcartDetailDataProvider;
+import co.com.ecommercecarvajal.platform.modules.shoppingcarthistory.dataproviders.ShoppingcarthistoryDataProvider;
 
 /**
  * Process Shift use case.
@@ -36,6 +38,9 @@ public class ProcessShoppingcart {
 	
 	@Autowired
 	private ShoppingcartDetailDataProvider shoppingcartDetailDataProvider;
+	
+	@Autowired
+	private ShoppingcarthistoryDataProvider shoppingcarthistoryDataProvider;
 	
 	@Autowired
 	private ConfigurationParameterGeneral configurationParameterGeneral;
@@ -68,7 +73,20 @@ public class ProcessShoppingcart {
 				.map(shoppingcartDetail ->{
 					shoppingcartDetail.setIdShoppingcart(shoppingcartExtDTO.getId());
 					try {
-						return shoppingcartDetailDataProvider.saveShoppingcartDetail(shoppingcartDetail);
+
+						ShoppingcartDetailDTO shoppingcartDetailDTO = shoppingcartDetailDataProvider.saveShoppingcartDetail(shoppingcartDetail);
+						
+						//save history detail
+						saveShoppingcarthistory(
+								new Shoppingcarthistory(
+										null, 
+										shoppingcartExtDTO.getIdCustomer(), 
+										shoppingcartExtDTO.getShoppingcartDate(), 
+										shoppingcartDetail.getIdProduct(), 
+										shoppingcartDetail.getAmount()));
+						
+						return shoppingcartDetailDTO;
+						
 					} catch (EBusinessApplicationException e) {
 						throw new EBusinessRuntimeBusinessException(ProductsMessages.PRODUCTS_ERROR_SAVE);
 					}
@@ -81,6 +99,30 @@ public class ProcessShoppingcart {
 		
 		return new RequestDTO(ResponseConstant.SUCCESSFUL, shoppingcartDetailResponseDTO);
 	}
+	
+	public RequestDTO deleteShoppingcarts(ShoppingcartDTO shoppingcartDTO) {
+
+		List<ShoppingcartDetailDTO> shoppingcartDetailList = validateDetail(shoppingcartDTO.getShoppingcartDetail());
+
+		if (shoppingcartDetailList != null) {
+
+			// delete shoppingcart detail
+			shoppingcartDetailList.stream().forEach(shoppingcartDetail -> {
+				try {
+					shoppingcartDetailDataProvider.deleteShoppingcartDetail(shoppingcartDetail);
+				} catch (EBusinessApplicationException e) {
+					throw new EBusinessRuntimeBusinessException(ProductsMessages.PRODUCTS_ERROR_SAVE);
+				}
+			});
+		}
+
+		return new RequestDTO(ResponseConstant.SUCCESSFUL, ProductsMessages.DELETE_SHOPPINGCARTDETAIL);
+	}
+	
+	private void saveShoppingcarthistory(Shoppingcarthistory entity) throws EBusinessApplicationException {
+		shoppingcarthistoryDataProvider.saveShoppingcarthistory(entity);
+	}
+	
 
 	/**
 	 * metodo que valida todos los detalles de la factura
@@ -99,7 +141,13 @@ public class ProcessShoppingcart {
 
 		return shoppingcartDetailDTOs.stream()
 			.map(products -> {
-				return new ShoppingcartDetailDTO(null, null, products.getIdProduct(), products.getAmount(), products.getSubtotal(), Double.valueOf(products.getAmount() * products.getSubtotal()));
+				return new ShoppingcartDetailDTO(
+						products.getId(), 
+						products.getIdShoppingcart(), 
+						products.getIdProduct(), 
+						products.getAmount(), 
+						products.getSubtotal(), 
+						Double.valueOf(products.getAmount() * products.getSubtotal()));
 			})
 			.collect(Collectors.toCollection(ArrayList::new));
 	}

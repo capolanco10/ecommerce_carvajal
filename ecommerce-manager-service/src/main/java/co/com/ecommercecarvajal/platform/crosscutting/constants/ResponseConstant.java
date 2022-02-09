@@ -23,5 +23,5 @@ public class ResponseConstant {
     public static final String CUSTOMER_URL = "/customer";
     public static final String PRODUCTS_URL = "/products";
     public static final String PRODUCT_URL = "/product";
-    public static final String INVOICE_URL = "/shoppingcart";
+    public static final String SHOPPINGCART_URL = "/shoppingcart";
 }
