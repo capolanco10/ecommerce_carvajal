@@ -22,7 +22,7 @@ implementar una prueba de concepto, generando una aplicación web que cumpla con
 
 **Modelo de datos:**
 
-![diagrama_datos.png](/.attachments/modeloDatos_User-management-services-88e7a41a-11aa-4e18-82ad-46cea535f250.png)
+![Diagrama de datos](https://github.com/capolanco10/ecommerce_carvajal/blob/main/resources/diagrama_datos.png)
 
 ---
 # PRERREQUISITOS
