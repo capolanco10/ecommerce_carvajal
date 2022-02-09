@@ -41,10 +41,12 @@ implementar una prueba de concepto, generando una aplicación web que cumpla con
 # CONFIGURACIÓN 
  - Compilar el proyecto **ecommerce-manager-service**
  1. Ubicarse en la raíz del **Proyecto** y correr el comando.
+ 
         > `./gradlew clean build`
 
  - Configuración Imagen y contenedor **DOCKER** para **postgresql y ecommerce-manager-service**
  1. Ubicarse en la raíz del **repositorio** y correr el comando.
+ 
 	> `docker-compose up`
 
 ---
